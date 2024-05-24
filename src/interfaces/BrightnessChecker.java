@@ -1,8 +1,8 @@
 package interfaces;
 
 public interface BrightnessChecker {
-    void brightnessUp(int value);
+    short brightnessUp(short value);
 
-    void brightnessDown(int value);
+    short brightnessDown(short value);
 
 }
