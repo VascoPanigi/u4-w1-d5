@@ -17,7 +17,6 @@ public abstract class Multimedia {
     public Multimedia(String title, short brightness) {
         this.title = title;
         this.brightness = brightness;
-        this.show = false;
     }
 
 

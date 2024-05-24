@@ -7,6 +7,8 @@ public class Audio extends Multimedia implements VolumeChecker, Player {
 
     public Audio(String title, int length, int volume) {
         super(title, length, volume);
+        super.play = false;
+
     }
 
     @Override
@@ -22,15 +24,18 @@ public class Audio extends Multimedia implements VolumeChecker, Player {
 
     @Override
     public boolean play() {
-        return !play;
+        return play = !play;
     }
 
     @Override
     public String toString() {
         return "Audio{" +
-                "volume=" + volume +
-                ", length=" + length +
+                "show=" + show +
+                ", play=" + play +
+                ", volume=" + volume +
                 ", title='" + title + '\'' +
+                ", length=" + length +
+                ", brightness=" + brightness +
                 '}';
     }
 }

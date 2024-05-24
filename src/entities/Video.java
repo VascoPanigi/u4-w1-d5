@@ -8,6 +8,7 @@ public class Video extends Multimedia implements VolumeChecker, BrightnessChecke
 
     public Video(String title, int length, int volume, short brightness) {
         super(title, length, volume, brightness);
+        super.play = false;
     }
 
 
@@ -34,16 +35,18 @@ public class Video extends Multimedia implements VolumeChecker, BrightnessChecke
 
     @Override
     public boolean play() {
-        return !play;
+        return play = !play;
     }
 
     @Override
     public String toString() {
         return "Video{" +
-                "brightness=" + brightness +
-                ", volume=" + volume +
+                "show=" + show +
+                ", play=" + play +
+                ", brightness=" + brightness +
                 ", length=" + length +
                 ", title='" + title + '\'' +
+                ", volume=" + volume +
                 '}';
     }
 }

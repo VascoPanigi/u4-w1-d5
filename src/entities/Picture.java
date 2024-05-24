@@ -6,8 +6,9 @@ import interfaces.Shower;
 public class Picture extends Multimedia implements BrightnessChecker, Shower {
 
 
-    public Picture(String title, int brightness) {
+    public Picture(String title, short brightness) {
         super(title, brightness);
+        super.show = false;
     }
 
 
@@ -25,6 +26,19 @@ public class Picture extends Multimedia implements BrightnessChecker, Shower {
 
     @Override
     public boolean show() {
-        return !show;
+
+        return show = !show;
+    }
+
+    @Override
+    public String toString() {
+        return "Picture{" +
+                "show=" + show +
+                ", brightness=" + brightness +
+                ", play=" + play +
+                ", volume=" + volume +
+                ", length=" + length +
+                ", title='" + title + '\'' +
+                '}';
     }
 }
