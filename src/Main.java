@@ -3,7 +3,6 @@ import entities.Multimedia;
 import entities.Picture;
 import entities.Video;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -41,7 +40,7 @@ public class Main {
             }
         }
 
-        System.out.println(Arrays.toString(multimediaArray));
+//        System.out.println(Arrays.toString(multimediaArray));
 
         while (true) {
             System.out.println("Please select the multimedia file you wish to play. Choose a number between 1 and 5.");
