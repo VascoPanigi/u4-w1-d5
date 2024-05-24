@@ -13,12 +13,10 @@ public class Main {
 
         Multimedia[] multimediaArray = new Multimedia[5];
 
-        String title;
-        short brightness;
-        int volume;
-        int length;
+        final int VIDEO = 1;
+        final int AUDIO = 2;
+        final int PICTURE = 3;
 
-        checkpoint:
         for (int i = 0; i < 5; i++) {
 
             System.out.println("Choose which multimedia element to insert in the array-");
@@ -26,44 +24,20 @@ public class Main {
             int mediaSelected = Integer.parseInt(scanner.nextLine());
 
             switch (mediaSelected) {
-                case 1:
-                    System.out.println("Insert a title for your video");
-                    title = scanner.nextLine();
-                    System.out.println("Please specify the duration of your video in minutes:");
-                    length = Integer.parseInt(scanner.nextLine());
-                    System.out.println("Please specify a value for the volume of your video - you can adjust it later");
-                    volume = Integer.parseInt(scanner.nextLine());
-                    System.out.println("Insert a value for the brightness of your video - you can adjust it later");
-                    brightness = Short.parseShort(scanner.nextLine());
-                    multimediaArray[i] = new Video(title, length, volume, brightness);
-
-                    System.out.println("The video has been successfully created! :D");
+                case VIDEO:
+                    multimediaArray[i] = createVideo(scanner);
                     break;
 
-                case 2:
-                    System.out.println("Insert a title for your audio");
-                    title = scanner.nextLine();
-                    System.out.println("Please specify the duration of your audio in minutes:");
-                    length = Integer.parseInt(scanner.nextLine());
-                    System.out.println("Please specify a value for the volume of your audio - you can adjust it later");
-                    volume = Integer.parseInt(scanner.nextLine());
-                    System.out.println();
-                    multimediaArray[i] = new Audio(title, length, volume);
-                    System.out.println("The audio has been successfully created! :D");
-
+                case AUDIO:
+                    multimediaArray[i] = createAudio(scanner);
                     break;
 
-                case 3:
-                    System.out.println("Insert a title for your image");
-                    title = scanner.nextLine();
-                    System.out.println("Insert a value for the brightness of your image - you can adjust it later");
-                    brightness = Short.parseShort(scanner.nextLine());
-                    multimediaArray[i] = new Picture(title, brightness);
-                    System.out.println("The picture has been successfully created! :D");
+                case PICTURE:
+                    multimediaArray[i] = createPicture(scanner);
                     break;
                 default:
                     System.out.println("Command not valid, please try again.");
-                    break checkpoint;
+                    i--;
             }
         }
 
@@ -90,9 +64,42 @@ public class Main {
             if (currentElement instanceof Audio) {
                 ((Audio) currentElement).play();
             }
-
-
         }
     }
 
+    public static Video createVideo(Scanner scanner) {
+        System.out.println("Insert a title for your video");
+        String title = scanner.nextLine();
+        System.out.println("Please specify the duration of your video in minutes:");
+        int length = Integer.parseInt(scanner.nextLine());
+        System.out.println("Please specify a value for the volume of your video - you can adjust it later");
+        int volume = Integer.parseInt(scanner.nextLine());
+        System.out.println("Insert a value for the brightness of your video - you can adjust it later");
+        short brightness = Short.parseShort(scanner.nextLine());
+        System.out.println("The video has been successfully created! :D");
+        return new Video(title, length, volume, brightness);
+    }
+
+
+    public static Audio createAudio(Scanner scanner) {
+        System.out.println("Insert a title for your audio");
+        String title = scanner.nextLine();
+        System.out.println("Please specify the duration of your audio in minutes:");
+        int length = Integer.parseInt(scanner.nextLine());
+        System.out.println("Please specify a value for the volume of your audio - you can adjust it later");
+        int volume = Integer.parseInt(scanner.nextLine());
+        System.out.println();
+        System.out.println("The audio has been successfully created! :D");
+        return new Audio(title, length, volume);
+    }
+
+    public static Picture createPicture(Scanner scanner) {
+        System.out.println("Insert a title for your image");
+        String title = scanner.nextLine();
+        System.out.println("Insert a value for the brightness of your image - you can adjust it later");
+        short brightness = Short.parseShort(scanner.nextLine());
+        System.out.println("The picture has been successfully created! :D");
+        return new Picture(title, brightness);
+
+    }
 }
