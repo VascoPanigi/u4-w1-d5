@@ -50,6 +50,7 @@ public class Main {
             if (selection == 0) {
 
                 System.out.println("You exited the program. Adios :(");
+                scanner.close();
                 break;
 
             }
