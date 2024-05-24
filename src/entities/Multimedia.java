@@ -36,5 +36,11 @@ public abstract class Multimedia {
         this.play = false;
     }
 
+    public boolean isShow() {
+        return show;
+    }
 
+    public boolean isPlay() {
+        return play;
+    }
 }

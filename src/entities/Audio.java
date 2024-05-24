@@ -16,7 +16,6 @@ public class Audio extends Multimedia implements VolumeChecker, Player {
         return volume -= value;
     }
 
-
     @Override
     public int volumeUp(int value) {
         return volume += value;
@@ -24,7 +23,18 @@ public class Audio extends Multimedia implements VolumeChecker, Player {
 
     @Override
     public boolean play() {
-        return play = !play;
+        StringBuilder esclPoints = new StringBuilder();
+        esclPoints.append("!".repeat(Math.max(1, volume)));
+
+        if (!play) {
+            for (int i = 0; i < length; i++) {
+                System.out.println(title + esclPoints);
+            }
+            return play = true;
+
+        } else {
+            return play = false;
+        }
     }
 
     @Override

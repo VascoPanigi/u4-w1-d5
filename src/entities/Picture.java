@@ -26,8 +26,17 @@ public class Picture extends Multimedia implements BrightnessChecker, Shower {
 
     @Override
     public boolean show() {
+        StringBuilder asterisks = new StringBuilder();
+        asterisks.append("*".repeat(Math.max(1, brightness)));
 
-        return show = !show;
+        if (!show) {
+
+            System.out.println(title + asterisks);
+
+            return show = true;
+        } else {
+            return show = false;
+        }
     }
 
     @Override

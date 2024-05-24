@@ -11,7 +11,6 @@ public class Video extends Multimedia implements VolumeChecker, BrightnessChecke
         super.play = false;
     }
 
-
     @Override
     public int volumeDown(int value) {
         return volume -= value;
@@ -35,7 +34,20 @@ public class Video extends Multimedia implements VolumeChecker, BrightnessChecke
 
     @Override
     public boolean play() {
-        return play = !play;
+        StringBuilder esclPoints = new StringBuilder();
+        esclPoints.append("!".repeat(Math.max(1, volume)));
+
+        StringBuilder asterisks = new StringBuilder();
+        asterisks.append("*".repeat(Math.max(1, brightness)));
+
+        if (!play) {
+            for (int i = 0; i < length; i++) {
+                System.out.println(title + esclPoints + asterisks);
+            }
+            return play = true;
+        } else {
+            return play = false;
+        }
     }
 
     @Override
