@@ -50,7 +50,6 @@ public class Main {
             if (selection == 0) {
 
                 System.out.println("You exited the program. Adios :(");
-                scanner.close();
                 break;
 
             }
@@ -66,6 +65,8 @@ public class Main {
                 ((Audio) currentElement).play();
             }
         }
+
+        scanner.close();
     }
 
     public static Video createVideo(Scanner scanner) {
